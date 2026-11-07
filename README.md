@@ -115,7 +115,7 @@ restaurant-food-delivery-analysis/
 │
 ├── README.md
 ├── food_delivery_business_analysis.sql
-└── food_delivery_professional_dashboard.xlsx
+└── Food_Order_Dashboard.xlsx
 ```
 
 ## Skills Demonstrated
