@@ -113,7 +113,7 @@ WHERE food_preparation_time <= 0
 
 SELECT
     COUNT(*) AS total_orders,
-    SUM(cost_of_the_order) AS total_revenue,
+    SUM(cost_of_the_order) AS total_order_value,
     AVG(cost_of_the_order) AS average_order_value,
     AVG(rating) AS average_rating,
     AVG(food_preparation_time) AS avg_preparation_time,
@@ -129,18 +129,18 @@ FROM food_orders_clean;
 SELECT
     restaurant_name,
     COUNT(order_id) AS total_orders,
-    SUM(cost_of_the_order) AS total_revenue,
+    SUM(cost_of_the_order) AS total_order_value,
     AVG(cost_of_the_order) AS avg_order_value
 FROM food_orders_clean
 GROUP BY restaurant_name
-ORDER BY total_revenue DESC
+ORDER BY total_order_value DESC
 LIMIT 10;
 
 -- 4.2 Top 10 restaurants by order volume.
 SELECT
     restaurant_name,
     COUNT(order_id) AS total_orders,
-    SUM(cost_of_the_order) AS total_revenue
+    SUM(cost_of_the_order) AS total_order_value
 FROM food_orders_clean
 GROUP BY restaurant_name
 ORDER BY total_orders DESC
@@ -203,11 +203,11 @@ LIMIT 10;
 SELECT
     cuisine_type,
     COUNT(order_id) AS total_orders,
-    SUM(cost_of_the_order) AS total_revenue,
+    SUM(cost_of_the_order) AS total_order_value,
     AVG(cost_of_the_order) AS avg_order_value
 FROM food_orders_clean
 GROUP BY cuisine_type
-ORDER BY total_revenue DESC;
+ORDER BY total_order_value DESC;
 
 -- 5.2 Cuisine popularity and average customer rating.
 SELECT
@@ -253,7 +253,7 @@ LIMIT 10;
 SELECT
     day_of_the_week,
     COUNT(order_id) AS total_orders,
-    SUM(cost_of_the_order) AS total_revenue,
+    SUM(cost_of_the_order) AS total_order_value,
     AVG(cost_of_the_order) AS avg_order_value
 FROM food_orders_clean
 GROUP BY day_of_the_week
